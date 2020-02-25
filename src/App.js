@@ -1,26 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+// import { BrowserRouter as Router } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import Home from "./components/Home"
+import Nav from "./components/Nav"
+import employees from "./employee.json"
+import Table from "./components/Table"
+import TableB from "./components/TableB"
+
+
+class App extends Component {
+  state = {
+    name: "",
+    employees
+
+  }
+
+  handleInputChange = evt => {
+    console.log(evt)
+
+    this.setState({ name: evt.target.value });
+  }
+
+  handleFormSubmit = evt => {
+    evt.preventDefault()
+    console.log(this.state.employees)
+
+
+  }
+
+  render() {
+    return (
+      <div>
+        <Nav />
+        <Home handleFormSubmit={this.handleFormSubmit} handleInputChange={this.handleInputChange} />
+
+        <h1>
+          {this.state.name}</h1>
+          <Table>
+            {this.state.employees.map(employee => (
+            <TableB id={employee.id}
+            name={employee.name}
+            occupation={employee.occupation}
+            location={employee.location}/>))}
+            
+          </Table>
+      </div>
+
+
+
+    )
+  }
+
 }
 
 export default App;
