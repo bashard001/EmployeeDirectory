@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+
+import React, { useState } from "react";
 // import { BrowserRouter as Router } from "react-router-dom";
 
 import './App.css';
@@ -9,40 +10,49 @@ import Table from "./components/Table"
 import TableB from "./components/TableB"
 
 
-class App extends Component {
-  state = {
-    name: "",
-    employees
+const App = () => {
+ 
+    
 
-  }
+  
 
-  handleInputChange = evt => {
-    console.log(evt)
+  const handleInputChange = evt => {
+    console.log(evt.target.value)
 
-    this.setState({ name: evt.target.value });
-  }
+  setName(evt.target.value)  
+  };
 
-  handleFormSubmit = evt => {
+  const [emf, setEmf] = useState(1111)
+
+  const [name, setName] = useState()
+ 
+  const handleFormSubmit = evt => {
     evt.preventDefault()
-    console.log(this.state.employees)
+    console.log(evt)
+    
+    
+    var employeef = employees.find(employee => employee.name === name)
+    
+    setEmf("employeef")
 
 
   }
 
-  render() {
+  
     return (
       <div>
         <Nav />
-        <Home handleFormSubmit={this.handleFormSubmit} handleInputChange={this.handleInputChange} />
+        <Home emf={emf} handleFormSubmit={handleFormSubmit} handleInputChange={handleInputChange} />
 
-        <h1>
-          {this.state.name}</h1>
+    
           <Table>
-            {this.state.employees.map(employee => (
+            {employees.map(employee => (
             <TableB id={employee.id}
             name={employee.name}
+            key={employee.id}
             occupation={employee.occupation}
-            location={employee.location}/>))}
+            location={employee.location}
+            />))}
             
           </Table>
       </div>
@@ -50,7 +60,7 @@ class App extends Component {
 
 
     )
-  }
+  
 
 }
 

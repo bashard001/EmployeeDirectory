@@ -7,7 +7,7 @@ function Nav (){
         <div className="jumbotron">
             <div className="container">
                 <div className="row">
-                    <p>Eployee Info</p>
+                    <p>Epmloyee Info</p>
                 </div>
             </div>
 
