@@ -22,7 +22,7 @@ const App = () => {
   setName(evt.target.value)  
   };
 
-  const [emf, setEmf] = useState(1111)
+  const [emf, setEmf] = useState()
 
   const [name, setName] = useState()
  
@@ -33,7 +33,7 @@ const App = () => {
     
     var employeef = employees.find(employee => employee.name === name)
     
-    setEmf("employeef")
+    setEmf(employeef)
 
 
   }
@@ -42,7 +42,7 @@ const App = () => {
     return (
       <div>
         <Nav />
-        <Home emf={emf} handleFormSubmit={handleFormSubmit} handleInputChange={handleInputChange} />
+        <Home emf={name} handleFormSubmit={handleFormSubmit} handleInputChange={handleInputChange} />
 
     
           <Table>
