@@ -10,6 +10,9 @@ import Table from "./components/Table"
 import TableB from "./components/TableB"
 
 
+var employeef;
+
+
 const App = () => {
  
     
@@ -22,7 +25,7 @@ const App = () => {
   setName(evt.target.value)  
   };
 
-  const [emf, setEmf] = useState()
+  const [emf, setEmf] = useState("book")
 
   const [name, setName] = useState()
  
@@ -31,7 +34,8 @@ const App = () => {
     console.log(evt)
     
     
-    var employeef = employees.find(employee => employee.name === name)
+   employeef = employees.find(employee => employee.name === name)
+    
     
     setEmf(employeef)
 
@@ -42,17 +46,11 @@ const App = () => {
     return (
       <div>
         <Nav />
-        <Home emf={name} handleFormSubmit={handleFormSubmit} handleInputChange={handleInputChange} />
+        <Home name={name} handleFormSubmit={handleFormSubmit} handleInputChange={handleInputChange} />
 
     
           <Table>
-            {employees.map(employee => (
-            <TableB id={employee.id}
-            name={employee.name}
-            key={employee.id}
-            occupation={employee.occupation}
-            location={employee.location}
-            />))}
+            <TableB find={emf}/>
             
           </Table>
       </div>
