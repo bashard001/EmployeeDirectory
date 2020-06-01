@@ -1,17 +1,21 @@
 import React from "react"
+import "./Nav.css"
 
-function Nav (){
+function Nav() {
 
 
-    return(
-        <div className="jumbotron">
-            <div className="container">
-                <div className="row">
-                    <p>Epmloyee Info</p>
+    return (
+        <header className="jumbotron jumbotron-fluid bg-info">
+            <div className="container ">
+                <div className="row justify-content-center">
+                    <div className="col m-auto">
+                        <h3 className="text-center">Find an Epmloyee</h3>
+                    </div>
+
                 </div>
             </div>
 
-        </div>
+        </header>
     )
 
 }

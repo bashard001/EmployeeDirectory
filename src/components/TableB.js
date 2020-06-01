@@ -7,9 +7,10 @@ function TableB(props) {
   console.log(props.find)
   var employees1;
 
-  if (props.find == "book"){
+   if (props.find == "book"){
 
    employees1 = employees.map(employee => {
+    
     return (
       <tbody>
         <tr>
@@ -20,8 +21,7 @@ function TableB(props) {
         </tr>
       </tbody>
     )
-  }
-  )} else{
+  })} else{
     return (
       <tbody>
         <tr>
@@ -30,10 +30,11 @@ function TableB(props) {
           <td>{props.find.occupation}</td>
           <td>{props.find.location}</td>
         </tr>
-      </tbody>
-    )
-  
-  }
+      </tbody>)
+      
+    }
+
+   
 
   return(
     [employees1]
