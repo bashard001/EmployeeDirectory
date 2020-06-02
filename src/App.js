@@ -16,7 +16,7 @@ import TableB from "./components/TableB"
 var App = () => {
   var employeef;
 
-const [emf, setEmf] = useState("book")
+const [emf, setEmf] = useState("")
 
 const [name, setName] = useState();
 
@@ -25,7 +25,7 @@ const [name, setName] = useState();
 
     setName(evt.target.value)
 
-
+    setEmf(evt.target.value)
   };
 
 

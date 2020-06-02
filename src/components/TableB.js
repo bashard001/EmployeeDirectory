@@ -7,12 +7,12 @@ function TableB(props) {
   console.log(props.find)
   var employees1;
 
-   if (props.find == "book"){
+   if (props.find.length < 1){
 
    employees1 = employees.map(employee => {
     
     return (
-      <tbody>
+      <tbody key={employee.id} >
         <tr>
           <th scope="row">{employee.id}</th>
           <td>{employee.name}</td>
@@ -21,7 +21,29 @@ function TableB(props) {
         </tr>
       </tbody>
     )
-  })} else{
+  })} else if (props.find.length <= 5 ){
+
+   employees1 = employees.filter(employee => props.find.length >= 2 ? (employee.name[0] == props.find[0] && employee.name[1] == props.find[1]) : (employee.name[0] == props.find[0]) )
+   console.log(employees1)
+   
+   return(
+   employees1.map( employee => {
+     return (
+        <tbody key={employee.id} >
+          <tr>
+            <th scope="row">{employee.id}</th>
+            <td>{employee.name}</td>
+            <td>{employee.occupation}</td>
+            <td>{employee.location}</td>
+          </tr>
+        </tbody>
+      )
+   }))
+    
+      
+    
+
+  } else {
     return (
       <tbody>
         <tr>
@@ -31,8 +53,7 @@ function TableB(props) {
           <td>{props.find.location}</td>
         </tr>
       </tbody>)
-      
-    }
+      }
 
    
 
